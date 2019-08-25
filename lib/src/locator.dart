@@ -1,26 +1,40 @@
-import 'dart:io' show Platform;
+import 'dart:io' show Directory, Platform;
 import 'package:path/path.dart' as path_lib;
 
 class Locator {
-  static String getPlatformSpecificCachePath() {
+  static String getPlatformSpecificCachePath({bool userBased = true}) {
     String os = Platform.operatingSystem;
     switch (os) {
       case 'windows':
-        return _findWindows();
+        return _verify(_findWindows(userBased));
       case 'linux':
-        return _findLinux();
+        return _verify(_findLinux());
       case 'macos':
-        return _findMacOS();
+        return _verify(_findMacOS());
       case 'android':
       case 'ios':
-        throw LocatorException('App caches are not supported for mobile devices');
+        throw LocatorException(
+            'App caches are not supported for mobile devices');
     }
     throw LocatorException(
-        'Platform-specific cache path for OS \'$os\' was not found');
+        'Platform-specific cache path for platform "$os" was not found');
   }
 
-  static String _findWindows() {
-    return path_lib.join(Platform.environment['UserProfile'], 'AppData', 'Roaming');
+  static String _verify(String path) {
+    if (Directory(path).existsSync()) {
+      return path;
+    }
+    throw LocatorException(
+        'The standard cache path for this platform ("$path") does not exist on this system');
+  }
+
+  static String _findWindows(bool userBased) {
+    if (userBased) {
+      return path_lib.join(
+          Platform.environment['UserProfile'], 'AppData', 'Roaming');
+    } else {
+      return 'C:\\ProgramData';
+    }
   }
 
   static String _findMacOS() {
@@ -28,7 +42,7 @@ class Locator {
   }
 
   static String _findLinux() {
-    return 'linux path!';
+    return '/var/lib';
   }
 }
 

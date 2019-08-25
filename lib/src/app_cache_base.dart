@@ -4,20 +4,38 @@ import 'locator.dart';
 import 'package:path/path.dart' as path_lib;
 
 class AppCache {
-  String path;
-  String _name;
+  final String name;
 
-  AppCache.findOrCreate(this._name) {
-    _findOrCreate();
+  String get path => _path;
+  Directory get directory => _directory;
+
+  String _path;
+  Directory _directory;
+
+  AppCache.findOrCreate(this.name, {bool userBased = true}) {
+    _findOrCreate(userBased);
   }
 
-  _findOrCreate() {
-    final cachePath = Locator.getPlatformSpecificCachePath();
-    path = path_lib.join(cachePath, _name);
-    
-    if(!Directory(path).existsSync()) {
-      Directory(path).createSync();
+  _findOrCreate(bool userBased) {
+    final cachePath =
+        Locator.getPlatformSpecificCachePath(userBased: userBased);
+    _path = path_lib.join(cachePath, name);
+
+    _directory = Directory(_path);
+
+    if (!_directory.existsSync()) {
+      _directory.createSync();
     }
+  }
+
+  delete() {
+    _directory.delete(recursive: true);
+  }
+
+  clear() {
+    _directory.list(recursive: true).listen((FileSystemEntity entity) {
+      entity.delete(recursive: true);
+    });
   }
 }
 
