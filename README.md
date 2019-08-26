@@ -1,9 +1,9 @@
 # app_cache
-Package for getting commonly used locations for storage on Windows, Mac, and Linux, such as the temp and app data directories.
+Dart Package for getting commonly used locations for storage on Windows, Mac, and Linux, such as the app data directories.
 
 Inspired by [path_provider](https://pub.dev/packages/path_provider) (this does the same, except for Dart CLI apps or libs).
 
-Originally written for a locally cached repository (think .m2 folders for Java).
+Originally written for a locally cached repository (think .m2 cache for Java).
 
 ## Usage
 ```dart
@@ -19,7 +19,7 @@ print(myCache.directory);
 // Get the name of the cache
 print(myCache.name; // Outputs: .my_app
 
-// Now do with it the folder whatever you want!
+// Now do with the folder whatever you want!
 ```
 ### Without AppCache
 ```dart
