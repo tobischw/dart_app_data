@@ -2,4 +2,5 @@ language: dart
 dart:
 # Install the latest stable release
 - stable
-- test: --platform vm
+dart_task:
+- test: test/app_cache_linux.dart
