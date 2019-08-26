@@ -25,7 +25,7 @@ class Locator {
       return path;
     }
     throw LocatorException(
-        'The standard cache path for this platform ("$path") does not exist on this system');
+        'The standard application path for this platform ("$path") does not exist on this system');
   }
 
   static String _findWindows() {
@@ -39,7 +39,7 @@ class Locator {
   }
 
   static String _findLinux() {
-    return '/var/lib';
+    return path_lib.join('home', Platform.environment['HOME']);
   }
 }
 
