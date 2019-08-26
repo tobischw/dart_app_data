@@ -7,6 +7,9 @@ Originally written for a locally cached repository (think .m2 cache for Java).
 
 ## Usage
 ```dart
+import 'package:app_cache/app_cache.dart';
+...
+
 // Creates a folder if it does not already exist (only call once).
 final myCache = AppCache.findOrCreate('.my_app');
 
@@ -23,6 +26,9 @@ print(myCache.name; // Outputs: .my_app
 ```
 ### Without AppCache
 ```dart
+import 'package:app_cache/src/locator.dart';
+...
+
 // No need for the AppCache abstraction? Use the Locator helper.
 print(Locator.getPlatformSpecificCachePath()); 
 // Outputs: C:\Users\MyUsername\AppData\Roaming
