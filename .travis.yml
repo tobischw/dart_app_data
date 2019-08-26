@@ -3,4 +3,4 @@ dart:
 # Install the latest stable release
 - stable
 dart_task:
-- test: --platform linux
+- test: --platform vm
