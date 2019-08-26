@@ -1,5 +1,5 @@
 /// Tests have to be platform specific.
-@TestOn("windows")
+@TestOn("macos")
 
 import 'dart:io';
 
@@ -9,11 +9,11 @@ import 'package:app_cache/src/locator.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('Test Locator for Windows', () {
+  test('Test Locator for macOS', () {
     // Ask for the path using our Locator API (that we are testing against).
     final path = Locator.getPlatformSpecificCachePath();
     // First, figure out correct user for Windows.
-    final user = Platform.environment['UserProfile'];
+    final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
     final correct_path = path_lib.join(user, 'AppData', 'Roaming');
 
@@ -21,39 +21,39 @@ void main() {
     expect(path, correct_path);
   });
 
-  test('Test AppCache Verify Correct Path on Windows', () {
+  test('Test AppCache Verify Correct Path on macOS', () {
     // Create the app cache.
     final testCache = AppCache.findOrCreate('test_app');
     // Now, figure out correct user for Windows.
-    final user = Platform.environment['UserProfile'];
+    final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
-    final correct_path = path_lib.join(user, 'AppData', 'Roaming', 'test_app');
+    final correct_path = path_lib.join(user, 'Application Support', 'test_app');
     
     // Create a directory using this path, and make sure it exists.
     expect(testCache.path, correct_path);
   });
 
-  test('Test AppCache Creation on Windows', () {
+  test('Test AppCache Creation on macOS', () {
     // Create the app cache.
     final testCache = AppCache.findOrCreate('test_app');
     // Now, figure out correct user for Windows.
-    final user = Platform.environment['UserProfile'];
+    final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
-    final correct_path = path_lib.join(user, 'AppData', 'Roaming', 'test_app');
+    final correct_path = path_lib.join(user, 'Application Support', 'test_app');
     
     // Create a directory using this path, and make sure it exists.
     expect(Directory(correct_path).existsSync(), true);
   });
 
-  test('Test AppCache Deletion on Windows', () {
+  test('Test AppCache Deletion on macOS', () {
     // Create the app cache.
     final testCache = AppCache.findOrCreate('test_app');
     // Now, delete the cache.
     testCache.delete();
     // Now, figure out correct user for Windows.
-    final user = Platform.environment['UserProfile'];
+    final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
-    final correct_path = path_lib.join(user, 'AppData', 'Roaming', 'test_app');
+    final correct_path = path_lib.join(user, 'Application Support', 'test_app');
 
     // Apparently deletion happens too quickly for the test to register,
     // so we have to sleep.
