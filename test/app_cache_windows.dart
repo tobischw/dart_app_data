@@ -1,5 +1,4 @@
-/// Tests have to be platform specific.
-@TestOn("windows")
+// Windows test
 
 import 'dart:io';
 
