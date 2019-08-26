@@ -1,5 +1,4 @@
-/// Tests have to be platform specific.
-//@TestOn("linux")
+// Linux test
 
 import 'dart:io';
 

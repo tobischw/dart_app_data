@@ -1,5 +1,4 @@
-/// Tests have to be platform specific.
-@TestOn("macos")
+// MacOS test
 
 import 'dart:io';
 
