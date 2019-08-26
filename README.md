@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tobischw/app_cache.svg?branch=master)](https://travis-ci.org/tobischw/app_cache)
+[![Build Status](https://travis-ci.org/tobischw/dart_app_data.svg?branch=master)](https://travis-ci.org/tobischw/dart_app_data)
 # dart_app_data
 Dart Package for getting commonly used locations for storage on Windows, Mac, and Linux, such as the app data directories.
 
