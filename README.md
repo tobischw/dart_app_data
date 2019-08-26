@@ -1,9 +1,18 @@
+[![Build Status](https://travis-ci.org/tobischw/app_cache.svg?branch=master)](https://travis-ci.org/tobischw/app_cache)
 # app_cache
 Dart Package for getting commonly used locations for storage on Windows, Mac, and Linux, such as the app data directories.
 
 Inspired by [path_provider](https://pub.dev/packages/path_provider) (this does the same, except for Dart CLI apps or libs).
 
 Originally written for a locally cached repository (think .m2 cache for Java).
+
+## How to Install
+Add this to your package's pubspec.yaml file:
+
+```yml
+dependencies:
+  app_cache: ^5.1.2
+```
 
 ## Usage
 ```dart
