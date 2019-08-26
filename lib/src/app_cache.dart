@@ -12,11 +12,11 @@ class AppCache {
   String _path;
   Directory _directory;
 
-  AppCache.findOrCreate(this.name, {bool userBased = true}) {
-    _findOrCreate(userBased);
+  AppCache.findOrCreate(this.name) {
+    _findOrCreate();
   }
 
-  _findOrCreate(bool userBased) {
+  _findOrCreate() {
     final cachePath =
         Locator.getPlatformSpecificCachePath();
     _path = path_lib.join(cachePath, name);
