@@ -1,22 +1,29 @@
-A library for Dart developers.
+# app_cache
+Package for getting commonly used locations for storage on Windows, Mac, and Linux, such as the temp and app data directories.
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+Inspired by [path_provider](https://pub.dev/packages/path_provider) (this does the same, except for Dart CLI apps or libs).
+
+Originally written for a locally cached repository (think .m2 folders for Java).
 
 ## Usage
-
-A simple usage example:
-
 ```dart
-import 'package:app_cache/app_cache.dart';
+// Creates a folder if it does not already exist (only call once).
+final myCache = AppCache.findOrCreate('.my_app');
 
-main() {
-  var awesome = new Awesome();
-}
+// Get the location of the folder as a String
+print(myCache.path); // Outputs: C:\Users\MyUsername\AppData\Roaming\.my_app
+
+// Get the location of the folder directly as a directory
+print(myCache.directory);
+
+// Get the name of the cache
+print(myCache.name; // Outputs: .my_app
+
+// Now do with it the folder whatever you want!
 ```
-
-## Features and bugs
-
-Please file feature requests and bugs at the [issue tracker][tracker].
-
-[tracker]: http://example.com/issues/replaceme
+### Without AppCache
+```dart
+// No need for the AppCache abstraction? Use the Locator helper.
+print(Locator.getPlatformSpecificCachePath()); 
+// Outputs: C:\Users\MyUsername\AppData\Roaming
+```
