@@ -12,7 +12,7 @@ void main() {
   test('Test Locator for macOS', () {
     // Ask for the path using our Locator API (that we are testing against).
     final path = Locator.getPlatformSpecificCachePath();
-    // First, figure out correct user for Windows.
+    // First, figure out correct user for macOS.
     final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
     final correct_path = path_lib.join(user, 'AppData', 'Roaming');
@@ -24,7 +24,7 @@ void main() {
   test('Test AppCache Verify Correct Path on macOS', () {
     // Create the app cache.
     final testCache = AppCache.findOrCreate('test_app');
-    // Now, figure out correct user for Windows.
+    // Now, figure out correct user for macOS.
     final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
     final correct_path = path_lib.join(user, 'Application Support', 'test_app');
@@ -36,7 +36,7 @@ void main() {
   test('Test AppCache Creation on macOS', () {
     // Create the app cache.
     final testCache = AppCache.findOrCreate('test_app');
-    // Now, figure out correct user for Windows.
+    // Now, figure out correct user for macOS.
     final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
     final correct_path = path_lib.join(user, 'Application Support', 'test_app');
@@ -50,7 +50,7 @@ void main() {
     final testCache = AppCache.findOrCreate('test_app');
     // Now, delete the cache.
     testCache.delete();
-    // Now, figure out correct user for Windows.
+    // Now, figure out correct user for macOS.
     final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
     final correct_path = path_lib.join(user, 'Application Support', 'test_app');
