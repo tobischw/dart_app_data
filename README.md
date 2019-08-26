@@ -41,7 +41,7 @@ print(myData.name); // Outputs: .my_app
 import 'package:dart_app_data/src/locator.dart';
 ...
 
-// No need for the AppCache abstraction? Use the Locator helper.
+// No need for the AppData abstraction? Use the Locator helper.
 print(Locator.getPlatformSpecificCachePath()); 
 // Outputs: C:\Users\MyUsername\AppData\Roaming
 ```
