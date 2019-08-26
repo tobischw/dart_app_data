@@ -36,8 +36,6 @@ class Locator {
   static String _findMacOS() {
     return path_lib.join(
         Platform.environment['HOME'], 'Library', 'Application Support');
-
-    return '~/Library/Application Support';
   }
 
   static String _findLinux() {

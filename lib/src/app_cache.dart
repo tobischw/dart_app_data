@@ -18,7 +18,7 @@ class AppCache {
 
   _findOrCreate(bool userBased) {
     final cachePath =
-        Locator.getPlatformSpecificCachePath(userBased: userBased);
+        Locator.getPlatformSpecificCachePath();
     _path = path_lib.join(cachePath, name);
 
     _directory = Directory(_path);
