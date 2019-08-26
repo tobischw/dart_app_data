@@ -46,10 +46,10 @@ print(Locator.getPlatformSpecificCachePath());
 // Outputs: C:\Users\MyUsername\AppData\Roaming
 ```
 
-### Paths
+# Paths
 * Windows: C:\Users\MyUsername\AppData\Roaming
 * macOS: /MyUsername/Library/Application Support
 * Linux: /MyUsername/user/
 
-### License
+# License
 See `LICENSE` in repository.
