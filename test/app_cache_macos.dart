@@ -15,7 +15,7 @@ void main() {
     // First, figure out correct user for macOS.
     final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
-    final correct_path = path_lib.join(user, 'AppData', 'Roaming');
+    final correct_path = path_lib.join(user, 'Application Support');
 
     // The paths MUST match, otherwise an error occured somewhere.
     expect(path, correct_path);
