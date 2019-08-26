@@ -45,6 +45,22 @@ import 'package:dart_app_data/src/locator.dart';
 print(Locator.getPlatformSpecificCachePath()); 
 // Outputs: C:\Users\MyUsername\AppData\Roaming
 ```
+# Troubleshooting
+```
+LocatorException: App caches are not supported for mobile devices
+```
+As the message says, this package is only for Dart applications that run on a traditional
+operating system (such as Windows, Linux, Mac).
+
+```
+LocatorException: The user application path for this platform ("$path") does not exist on this system
+```
+Something went wrong during the path discovery (i.e.: the path does not exist). Is the app running as root? Did you a delete a common path somehow (see below)? Submit an Issue if this persists.
+
+```
+LocatorException: Platform-specific cache path for platform "$os" was not found
+```
+This means you're on an unsupported operating system.
 
 # Paths
 * Windows: C:\Users\MyUsername\AppData\Roaming
