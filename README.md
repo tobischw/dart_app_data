@@ -11,7 +11,7 @@ Add this to your package's pubspec.yaml file:
 
 ```yml
 dependencies:
-  dart_app_data: ^1.0.0
+  dart_app_data: ^1.0.1
 ```
 
 ## Usage
