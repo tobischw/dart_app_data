@@ -21,6 +21,18 @@ void main() {
     expect(path, correct_path);
   });
 
+  test('Test AppCache Verify Correct Path', () {
+    // Create the app cache.
+    final testCache = AppCache.findOrCreate('test_app');
+    // Now, figure out correct user for Windows.
+    final user = Platform.environment['UserProfile'];
+    // Create the path that we know is correct.
+    final correct_path = path_lib.join(user, 'AppData', 'Roaming', 'test_app');
+    
+    // Create a directory using this path, and make sure it exists.
+    expect(testCache.path, correct_path);
+  });
+
   test('Test AppCache Creation on Windows', () {
     // Create the app cache.
     final testCache = AppCache.findOrCreate('test_app');
@@ -42,7 +54,10 @@ void main() {
     final user = Platform.environment['UserProfile'];
     // Create the path that we know is correct.
     final correct_path = path_lib.join(user, 'AppData', 'Roaming', 'test_app');
-    
+
+    // Apparently deletion happens too quickly for the test to register,
+    // so we have to sleep.
+    sleep(const Duration(seconds:2));
     // Check that it does NOT exist anymore.
     expect(Directory(correct_path).existsSync(), false);
   });
