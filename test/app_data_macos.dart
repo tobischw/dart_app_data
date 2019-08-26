@@ -22,7 +22,7 @@ void main() {
 
   test('Test AppCache Verify Correct Path on macOS', () {
     // Create the app cache.
-    final testCache = AppCache.findOrCreate('test_app');
+    final testCache = AppData.findOrCreate('test_app');
     // Now, figure out correct user for macOS.
     final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
@@ -34,7 +34,7 @@ void main() {
 
   test('Test AppCache Creation on macOS', () {
     // Create the app cache.
-    final testCache = AppCache.findOrCreate('test_app');
+    final testCache = AppData.findOrCreate('test_app');
     // Now, figure out correct user for macOS.
     final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
@@ -46,7 +46,7 @@ void main() {
 
   test('Test AppCache Deletion on macOS', () {
     // Create the app cache.
-    final testCache = AppCache.findOrCreate('test_app');
+    final testCache = AppData.findOrCreate('test_app');
     // Now, delete the cache.
     testCache.delete();
     // Now, figure out correct user for macOS.
