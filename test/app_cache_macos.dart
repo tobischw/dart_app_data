@@ -14,7 +14,7 @@ void main() {
     // First, figure out correct user for macOS.
     final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
-    final correct_path = path_lib.join(user, 'Application Support');
+    final correct_path = path_lib.join(user, 'Library', 'Application Support');
 
     // The paths MUST match, otherwise an error occured somewhere.
     expect(path, correct_path);
@@ -26,7 +26,7 @@ void main() {
     // Now, figure out correct user for macOS.
     final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
-    final correct_path = path_lib.join(user, 'Application Support', 'test_app');
+    final correct_path = path_lib.join(user, 'Library', 'Application Support', 'test_app');
     
     // Create a directory using this path, and make sure it exists.
     expect(testCache.path, correct_path);
@@ -38,7 +38,7 @@ void main() {
     // Now, figure out correct user for macOS.
     final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
-    final correct_path = path_lib.join(user, 'Application Support', 'test_app');
+    final correct_path = path_lib.join(user, 'Library', 'Application Support', 'test_app');
     
     // Create a directory using this path, and make sure it exists.
     expect(Directory(correct_path).existsSync(), true);
@@ -52,7 +52,7 @@ void main() {
     // Now, figure out correct user for macOS.
     final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
-    final correct_path = path_lib.join(user, 'Application Support', 'test_app');
+    final correct_path = path_lib.join(user, 'Library', 'Application Support', 'test_app');
 
     // Apparently deletion happens too quickly for the test to register,
     // so we have to sleep.
