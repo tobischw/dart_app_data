@@ -2,11 +2,11 @@ import 'dart:io' show Directory, Platform;
 import 'package:path/path.dart' as path_lib;
 
 class Locator {
-  static String getPlatformSpecificCachePath({bool userBased = true}) {
+  static String getPlatformSpecificCachePath() {
     String os = Platform.operatingSystem;
     switch (os) {
       case 'windows':
-        return _verify(_findWindows(userBased));
+        return _verify(_findWindows());
       case 'linux':
         return _verify(_findLinux());
       case 'macos':
@@ -28,16 +28,15 @@ class Locator {
         'The standard cache path for this platform ("$path") does not exist on this system');
   }
 
-  static String _findWindows(bool userBased) {
-    if (userBased) {
-      return path_lib.join(
-          Platform.environment['UserProfile'], 'AppData', 'Roaming');
-    } else {
-      return 'C:\\ProgramData';
-    }
+  static String _findWindows() {
+    return path_lib.join(
+        Platform.environment['UserProfile'], 'AppData', 'Roaming');
   }
 
   static String _findMacOS() {
+    return path_lib.join(
+        Platform.environment['HOME'], 'Library', 'Application Support');
+
     return '~/Library/Application Support';
   }
 

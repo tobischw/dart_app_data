@@ -1,8 +1,7 @@
-/// Support for doing something awesome.
+/// Locate common app data places for multiple platforms, and
+/// create a local app cache immediately.
 ///
-/// More dartdocs go here.
+/// Not supported for mobile/Flutter.
 library app_cache;
 
-export 'src/app_cache_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/app_cache.dart';
