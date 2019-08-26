@@ -31,7 +31,7 @@ class Locator {
       return path;
     }
     throw LocatorException(
-        'The standard application path for this platform ("$path") does not exist on this system');
+        'The user application path for this platform ("$path") does not exist on this system');
   }
 
   static String _findWindows() {
