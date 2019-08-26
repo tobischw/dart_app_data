@@ -2,3 +2,4 @@ language: dart
 dart:
 # Install the latest stable release
 - stable
+- test: test/app_cache_linux.dart
