@@ -29,9 +29,11 @@ print(myCache.path); // Outputs: C:\Users\MyUsername\AppData\Roaming\.my_app
 print(myCache.directory);
 
 // Get the name of the cache
-print(myCache.name; // Outputs: .my_app
+print(myCache.name); // Outputs: .my_app
 
-// Now do with the folder whatever you want!
+// ... Do whatever you want with the folder now.
+// Want to delete it?
+myCache.delete();
 ```
 ### Without AppCache
 ```dart

@@ -42,11 +42,3 @@ class AppCache {
     });
   }
 }
-
-class AppCacheException implements Exception {
-  final String message;
-
-  const AppCacheException(this.message);
-
-  String toString() => 'AppCacheException: $message';
-}
