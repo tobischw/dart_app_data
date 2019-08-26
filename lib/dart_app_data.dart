@@ -2,6 +2,6 @@
 /// create a local app cache immediately.
 ///
 /// Not supported for mobile/Flutter.
-library app_cache;
+library dart_app_data;
 
-export 'src/app_cache.dart';
+export 'src/app_data.dart';

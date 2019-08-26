@@ -3,7 +3,7 @@ import 'package:path/path.dart' as path_lib;
 
 /// Static helper class for determining platform's app data path.
 /// 
-/// Does not require [AppCache] to work, can be standalone.
+/// Does not require [AppData] to work, can be standalone.
 /// Paths for MacOS and Linux were choosen based on popular
 /// StackOverflow answers. Submit a PR if you believe these are
 /// wrong.

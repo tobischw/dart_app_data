@@ -8,7 +8,7 @@ import 'package:path/path.dart' as path_lib;
 /// Use [name] to define the name of the folder. It will automatically be created
 /// if it does not exist already. Access the path of the cache using [path] or 
 /// directly access the directory by using [directory].
-class AppCache {
+class AppData {
   final String name;
 
   String get path => _path;
@@ -17,7 +17,7 @@ class AppCache {
   String _path;
   Directory _directory;
 
-  AppCache.findOrCreate(this.name) {
+  AppData.findOrCreate(this.name) {
     _findOrCreate();
   }
 

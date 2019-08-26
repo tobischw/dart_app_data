@@ -3,8 +3,8 @@
 import 'dart:io';
 
 import 'package:path/path.dart' as path_lib;
-import 'package:app_cache/app_cache.dart';
-import 'package:app_cache/src/locator.dart';
+import 'package:dart_app_data/dart_app_data.dart';
+import 'package:dart_app_data/src/locator.dart';
 import 'package:test/test.dart';
 
 void main() {

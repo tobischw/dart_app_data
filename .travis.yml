@@ -3,4 +3,4 @@ dart:
 # Install the latest stable release
 - stable
 dart_task:
-- test: test/app_cache_linux.dart
+- test: test/app_data_linux.dart

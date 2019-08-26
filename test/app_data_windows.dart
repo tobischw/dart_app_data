@@ -3,8 +3,8 @@
 import 'dart:io';
 
 import 'package:path/path.dart' as path_lib;
-import 'package:app_cache/app_cache.dart';
-import 'package:app_cache/src/locator.dart';
+import 'package:dart_app_data/dart_app_data.dart';
+import 'package:dart_app_data/src/locator.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -20,9 +20,9 @@ void main() {
     expect(path, correct_path);
   });
 
-  test('Test AppCache Verify Correct Path on Windows', () {
+  test('Test AppData Verify Correct Path on Windows', () {
     // Create the app cache.
-    final testCache = AppCache.findOrCreate('test_app');
+    final testCache = AppData.findOrCreate('test_app');
     // Now, figure out correct user for Windows.
     final user = Platform.environment['UserProfile'];
     // Create the path that we know is correct.
@@ -32,9 +32,9 @@ void main() {
     expect(testCache.path, correct_path);
   });
 
-  test('Test AppCache Creation on Windows', () {
+  test('Test AppData Creation on Windows', () {
     // Create the app cache.
-    final testCache = AppCache.findOrCreate('test_app');
+    final testCache = AppData.findOrCreate('test_app');
     // Now, figure out correct user for Windows.
     final user = Platform.environment['UserProfile'];
     // Create the path that we know is correct.
@@ -44,9 +44,9 @@ void main() {
     expect(Directory(correct_path).existsSync(), true);
   });
 
-  test('Test AppCache Deletion on Windows', () {
+  test('Test AppData Deletion on Windows', () {
     // Create the app cache.
-    final testCache = AppCache.findOrCreate('test_app');
+    final testCache = AppData.findOrCreate('test_app');
     // Now, delete the cache.
     testCache.delete();
     // Now, figure out correct user for Windows.

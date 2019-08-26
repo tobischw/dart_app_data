@@ -1,4 +1,4 @@
-name: app_cache
+name: dart_app_data
 description: A package for getting commonly used locations for storage on Windows, Mac, and Linux, such as the app data directories.
 version: 1.0.0
 homepage: https://github.com/tobischw

@@ -3,8 +3,8 @@
 import 'dart:io';
 
 import 'package:path/path.dart' as path_lib;
-import 'package:app_cache/app_cache.dart';
-import 'package:app_cache/src/locator.dart';
+import 'package:dart_app_data/dart_app_data.dart';
+import 'package:dart_app_data/src/locator.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -22,7 +22,7 @@ void main() {
 
   test('Test AppCache Verify Correct Path on Linux', () {
     // Create the app cache.
-    final testCache = AppCache.findOrCreate('test_app');
+    final testCache = AppData.findOrCreate('test_app');
     // Now, figure out correct user for Linux.
     final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
@@ -34,7 +34,7 @@ void main() {
 
   test('Test AppCache Creation on Linux', () {
     // Create the app cache.
-    final testCache = AppCache.findOrCreate('test_app');
+    final testCache = AppData.findOrCreate('test_app');
     // Now, figure out correct user for Linux.
     final user = Platform.environment['HOME'];
     // Create the path that we know is correct.
@@ -46,7 +46,7 @@ void main() {
 
   test('Test AppCache Deletion on Linux', () {
     // Create the app cache.
-    final testCache = AppCache.findOrCreate('test_app');
+    final testCache = AppData.findOrCreate('test_app');
     // Now, delete the cache.
     testCache.delete();
     // Now, figure out correct user for Linux.
