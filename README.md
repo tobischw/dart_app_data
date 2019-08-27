@@ -6,6 +6,8 @@ Inspired by [path_provider](https://pub.dev/packages/path_provider) (this does t
 
 Originally written for a locally cached repository (think .m2 cache for Java). Tested and working on Windows, Mac, and Linux. **Flutter is not supported.**
 
+Not tested on Windows 7/Vista/older, this library could use improvements!
+
 ## How to Install
 Add this to your package's pubspec.yaml file:
 
