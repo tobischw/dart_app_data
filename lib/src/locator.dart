@@ -2,14 +2,14 @@ import 'dart:io' show Directory, Platform;
 import 'package:path/path.dart' as path_lib;
 
 /// Static helper class for determining platform's app data path.
-/// 
+///
 /// Does not require [AppData] to work, can be standalone.
 /// Paths for MacOS and Linux were choosen based on popular
 /// StackOverflow answers. Submit a PR if you believe these are
 /// wrong.
 class Locator {
   static String getPlatformSpecificCachePath() {
-    String os = Platform.operatingSystem;
+    var os = Platform.operatingSystem;
     switch (os) {
       case 'windows':
         return _verify(_findWindows());
@@ -36,12 +36,12 @@ class Locator {
 
   static String _findWindows() {
     return path_lib.join(
-        Platform.environment['UserProfile'], 'AppData', 'Roaming');
+        Platform.environment['UserProfile']!, 'AppData', 'Roaming');
   }
 
   static String _findMacOS() {
     return path_lib.join(
-        Platform.environment['HOME'], 'Library', 'Application Support');
+        Platform.environment['HOME']!, 'Library', 'Application Support');
   }
 
   static String _findLinux() {
@@ -54,5 +54,6 @@ class LocatorException implements Exception {
 
   const LocatorException(this.message);
 
+  @override
   String toString() => 'LocatorException: $message';
 }
